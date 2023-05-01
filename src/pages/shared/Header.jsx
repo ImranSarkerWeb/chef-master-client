@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -77,7 +78,9 @@ const Header = () => {
           <img src="https://randomuser.me/api/portraits/med/men/75.jpg" />
         </div>
       </label>
-      <button className="btn btn-sm">Login</button>
+      <Link to="/login" className="btn btn-sm">
+        Login
+      </Link>
     </div>
   );
 };
