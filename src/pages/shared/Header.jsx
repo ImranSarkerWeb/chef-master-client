@@ -3,7 +3,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 font-['Mulish']">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -73,10 +73,11 @@ const Header = () => {
         <a className="btn">Order Online</a>
       </div>
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
+        <div title="User mula kha" className="w-10 rounded-full">
           <img src="https://randomuser.me/api/portraits/med/men/75.jpg" />
         </div>
       </label>
+      <button className="btn btn-sm">Login</button>
     </div>
   );
 };
