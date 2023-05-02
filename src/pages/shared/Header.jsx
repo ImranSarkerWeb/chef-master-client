@@ -69,8 +69,8 @@ const Header = () => {
       <div className="navbar-end"></div>
       {user && (
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div title="User mula kha" className="w-10 rounded-full">
-            <img src="https://randomuser.me/api/portraits/med/men/75.jpg" />
+          <div title={user?.displayName} className="w-10 rounded-full">
+            <img src={user?.photoURL} />
           </div>
         </label>
       )}

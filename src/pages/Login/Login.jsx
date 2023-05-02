@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../providers/AuthProvider";
 
 const Login = () => {
   const { loading, signIn } = useContext(AuthContex);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   if (loading) {
@@ -14,6 +15,7 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    setError("");
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
@@ -22,6 +24,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error.message);
+        setError(error.message);
       });
   };
   return (
@@ -46,7 +49,8 @@ const Login = () => {
             className="input input-bordered input-md w-full max-w-xs"
           />
         </div>
-        <button className="btn w-[22%]">Login</button>
+        {error && <p className="text-red-600">{error}</p>}
+        <button className="btn w-[22%] mt-4">Login</button>
       </form>
       <p className="mt-4">
         <small>

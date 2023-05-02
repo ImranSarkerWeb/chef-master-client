@@ -2,9 +2,10 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContex } from "../../providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContex);
+  const { createUser } = useContext(AuthContex);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
@@ -26,18 +27,24 @@ const Register = () => {
         const createdUser = result.user;
         console.log(createdUser);
         setSuccess("User has been created successfully.");
+        updateUserProfile(result.user, name, photo)
+          .then(() => {
+            console.log("user profile updated");
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
       })
       .catch((error) => {
         console.error(error.message);
         setError(error.message);
       });
-    updateUserProfile(name, photo)
-      .then(() => {
-        console.log("user profile updated");
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+  };
+  const updateUserProfile = (user, name, photo) => {
+    return updateProfile(user, {
+      displayName: name,
+      photoURL: photo,
+    });
   };
   return (
     <div className="text-center my-8 font-['Mulish']">
