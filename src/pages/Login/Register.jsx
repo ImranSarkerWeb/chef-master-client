@@ -88,7 +88,7 @@ const Register = () => {
         </div>
         {success && <p className="text-green-600">{success}</p>}
         {error && <p className="text-red-600">{error}</p>}
-        <button className="mt-5 btn w-[22%]">Register</button>
+        <button className="mt-5 btn w-full max-w-xs">Register</button>
       </form>
       <p className="mt-4">
         <small>
@@ -98,15 +98,18 @@ const Register = () => {
           </Link>
         </small>
       </p>
-      <div className="divider w-1/3 mx-auto my-8">OR</div>
+      <div className="divider w-full max-w-xs mx-auto my-8">OR</div>
       <div>
-        <button onClick={googleSignIn} className="btn btn-outline mb-4 w-[22%]">
+        <button
+          onClick={googleSignIn}
+          className="btn btn-outline mb-4 w-full max-w-xs "
+        >
           Sign Up With Google
         </button>{" "}
         <br />
         <button
           onClick={githubSignIn}
-          className="btn btn-outline btn-primary w-[22%]"
+          className="btn btn-outline btn-primary w-full max-w-xs"
         >
           Sign Up Login With Github
         </button>

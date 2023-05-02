@@ -51,7 +51,7 @@ const Login = () => {
           />
         </div>
         {error && <p className="text-red-600">{error}</p>}
-        <button className="btn w-[22%] mt-4">Login</button>
+        <button className="btn w-full max-w-xs mt-4">Login</button>
       </form>
       <p className="mt-4">
         <small>
@@ -61,15 +61,18 @@ const Login = () => {
           </Link>
         </small>
       </p>
-      <div className="divider w-1/3 mx-auto my-8">OR</div>
+      <div className="divider w-full max-w-xs mx-auto my-8">OR</div>
       <div>
-        <button onClick={googleSignIn} className="btn btn-outline mb-4 w-[22%]">
+        <button
+          onClick={googleSignIn}
+          className="btn btn-outline mb-4  w-full max-w-xs"
+        >
           Login With Google
         </button>{" "}
         <br />
         <button
           onClick={githubSignIn}
-          className="btn btn-outline btn-primary w-[22%]"
+          className="btn btn-outline btn-primary w-full max-w-xs"
         >
           Login With Github
         </button>
