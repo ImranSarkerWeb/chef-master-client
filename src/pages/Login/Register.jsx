@@ -5,7 +5,7 @@ import { AuthContex } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const { createUser, googleSignIn } = useContext(AuthContex);
+  const { createUser, googleSignIn, githubSignIn } = useContext(AuthContex);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
@@ -48,7 +48,7 @@ const Register = () => {
   };
   return (
     <div className="text-center my-8 font-['Mulish']">
-      <h2 className="text-4xl my-8">Please Login!</h2>
+      <h2 className="text-4xl my-8">Please Register!</h2>
       <form onSubmit={handleRegister}>
         <div>
           <input
@@ -104,7 +104,10 @@ const Register = () => {
           Sign Up With Google
         </button>{" "}
         <br />
-        <button className="btn btn-outline btn-primary w-[22%]">
+        <button
+          onClick={githubSignIn}
+          className="btn btn-outline btn-primary w-[22%]"
+        >
           Sign Up Login With Github
         </button>
       </div>

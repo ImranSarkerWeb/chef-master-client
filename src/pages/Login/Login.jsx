@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../providers/AuthProvider";
 
 const Login = () => {
-  const { loading, signIn, googleSignIn } = useContext(AuthContex);
+  const { loading, signIn, googleSignIn, githubSignIn } =
+    useContext(AuthContex);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -66,7 +67,10 @@ const Login = () => {
           Login With Google
         </button>{" "}
         <br />
-        <button className="btn btn-outline btn-primary w-[22%]">
+        <button
+          onClick={githubSignIn}
+          className="btn btn-outline btn-primary w-[22%]"
+        >
           Login With Github
         </button>
       </div>
