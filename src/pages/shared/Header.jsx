@@ -4,8 +4,17 @@ import { Link } from "react-router-dom";
 import { AuthContex } from "../../providers/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContex);
+  const { user, logOut } = useContext(AuthContex);
   console.log(user);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="navbar bg-base-100 font-['Mulish']">
       <div className="navbar-start">
@@ -66,7 +75,9 @@ const Header = () => {
         </label>
       )}
       {user ? (
-        <button className="btn btn-sm">Log Out</button>
+        <button onClick={handleLogOut} className="btn btn-sm">
+          Log Out
+        </button>
       ) : (
         <Link to="/login" className="btn btn-sm">
           Login

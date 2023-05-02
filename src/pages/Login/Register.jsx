@@ -15,7 +15,12 @@ const Register = () => {
     const email = form.email.value;
     const photo = form.photo.value;
     const password = form.password.value;
-
+    setSuccess("");
+    setError("");
+    if (password.length < 6) {
+      setError("You password at least 6 character long.");
+      return;
+    }
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
@@ -49,7 +54,7 @@ const Register = () => {
         </div>
         <div className="my-8">
           <input
-            type="text"
+            type="email"
             placeholder="Your Email"
             className="input input-bordered input-md w-full max-w-xs"
             name="email"
