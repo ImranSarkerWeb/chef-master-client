@@ -5,7 +5,7 @@ import { AuthContex } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContex);
+  const { createUser, googleSignIn } = useContext(AuthContex);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
@@ -100,7 +100,7 @@ const Register = () => {
       </p>
       <div className="divider w-1/3 mx-auto my-8">OR</div>
       <div>
-        <button className="btn btn-outline mb-4 w-[22%]">
+        <button onClick={googleSignIn} className="btn btn-outline mb-4 w-[22%]">
           Sign Up With Google
         </button>{" "}
         <br />

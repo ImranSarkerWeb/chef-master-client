@@ -2,16 +2,19 @@
 /* eslint-disable no-unused-vars */
 import React, { createContext, useEffect, useState } from "react";
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 export const AuthContex = createContext(null);
 const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -40,10 +43,20 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+  const googleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const gmailUser = result.user;
+      console.log("user created using gmail", gmailUser);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   const authInfo = {
     user,
     createUser,
     signIn,
+    googleSignIn,
     logOut,
   };
   return <AuthContex.Provider value={authInfo}>{children}</AuthContex.Provider>;

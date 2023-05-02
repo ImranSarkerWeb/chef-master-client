@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../providers/AuthProvider";
 
 const Login = () => {
-  const { loading, signIn } = useContext(AuthContex);
+  const { loading, signIn, googleSignIn } = useContext(AuthContex);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -62,7 +62,7 @@ const Login = () => {
       </p>
       <div className="divider w-1/3 mx-auto my-8">OR</div>
       <div>
-        <button className="btn btn-outline mb-4 w-[22%]">
+        <button onClick={googleSignIn} className="btn btn-outline mb-4 w-[22%]">
           Login With Google
         </button>{" "}
         <br />
