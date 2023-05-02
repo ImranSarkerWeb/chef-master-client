@@ -2,6 +2,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../providers/AuthProvider";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const { loading, signIn, googleSignIn, githubSignIn } =
@@ -67,14 +68,14 @@ const Login = () => {
           onClick={googleSignIn}
           className="btn btn-outline mb-4  w-full max-w-xs"
         >
-          Login With Google
+          <FaGoogle className="me-2" /> Login With Google
         </button>{" "}
         <br />
         <button
           onClick={githubSignIn}
           className="btn btn-outline btn-primary w-full max-w-xs"
         >
-          Login With Github
+          <FaGithub className="me-2" /> Login With Github
         </button>
       </div>
     </div>

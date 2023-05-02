@@ -1,13 +1,21 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
 import { FaHandPointRight } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const RecipeCard = ({ recipe }) => {
   const { name, ingredients, cooking_method, rating, picture } = recipe;
   const recipeLines = cooking_method.split("\n");
+  const [toggle, setToggle] = useState(false);
+  const notify = () => {
+    setToggle(true);
+    toast(`${name} added to your favorite list.`);
+  };
   return (
     <div>
+      <ToastContainer />
       <div className="card card-side font-['Mulish'] bg-base-100 my-4 shadow-xl">
         {/* <figure>
           <img src={recipe?.picture} alt="Movie" />
@@ -45,7 +53,13 @@ const RecipeCard = ({ recipe }) => {
           <p>Ratings: {rating}</p>
 
           <div className="card-actions justify-end">
-            <button className="btn btn-xs">Favorite</button>
+            <button
+              disabled={toggle}
+              onClick={notify}
+              className="btn btn-xs bg-amber-600 border-none hover:bg-amber-700"
+            >
+              Favorite
+            </button>
           </div>
         </div>
       </div>

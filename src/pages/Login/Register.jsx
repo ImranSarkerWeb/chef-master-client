@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContex } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Register = () => {
   const { createUser, googleSignIn, githubSignIn } = useContext(AuthContex);
@@ -104,6 +105,7 @@ const Register = () => {
           onClick={googleSignIn}
           className="btn btn-outline mb-4 w-full max-w-xs "
         >
+          <FaGoogle className="me-2" />
           Sign Up With Google
         </button>{" "}
         <br />
@@ -111,7 +113,7 @@ const Register = () => {
           onClick={githubSignIn}
           className="btn btn-outline btn-primary w-full max-w-xs"
         >
-          Sign Up Login With Github
+          <FaGithub className="me-2" /> Sign Up Login With Github
         </button>
       </div>
     </div>
