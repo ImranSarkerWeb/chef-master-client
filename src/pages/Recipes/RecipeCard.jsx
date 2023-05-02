@@ -1,8 +1,56 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { FaHandPointRight } from "react-icons/fa";
 
-const RecipeCard = () => {
-  return <div></div>;
+const RecipeCard = ({ recipe }) => {
+  const { name, ingredients, cooking_method, rating, picture } = recipe;
+  const recipeLines = cooking_method.split("\n");
+  return (
+    <div>
+      <div className="card card-side font-['Mulish'] bg-base-100 my-4 shadow-xl">
+        {/* <figure>
+          <img src={recipe?.picture} alt="Movie" />
+        </figure> */}
+
+        <div className="avatar">
+          <div className="w-96 mx-4  mask mask-hexagon">
+            <img src={picture} />
+          </div>
+        </div>
+        <div className="card-body">
+          <h2 className="card-title mb-6 text-5xl">{name}</h2>
+          <p className="text-4xl  underline decoration-wavy text-amber-600">
+            Ingredients
+          </p>
+          <ul className="mt-4">
+            {ingredients.map((item, idx) => (
+              <li
+                key={idx}
+                className="flex capitalize  items-center gap-2 text-lg"
+              >
+                {" "}
+                <FaHandPointRight className="ms-4 text-amber-600" /> {item}
+              </li>
+            ))}
+          </ul>
+
+          <p className="text-4xl  underline decoration-wavy text-amber-600 my-4">
+            Cooking Method
+          </p>
+          {recipeLines.map((line, index) => (
+            <p key={index}>{line}</p>
+          ))}
+
+          <p>Ratings: {rating}</p>
+
+          <div className="card-actions justify-end">
+            <button className="btn btn-xs">Favorite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default RecipeCard;

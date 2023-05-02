@@ -1,51 +1,75 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { json, useLoaderData, useParams } from "react-router-dom";
 import { AuthContex } from "../../providers/AuthProvider";
 import { FaBriefcase, FaHeart, FaTasks } from "react-icons/fa";
+import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import RecipeCard from "./RecipeCard";
 
 const Recipes = () => {
   const { chefs } = useContext(AuthContex);
-
-  const recipe = useLoaderData();
-  console.log(recipe);
   const collectId = useParams();
   const selectedChef = chefs.find((chef) => chef.id == collectId.id);
-
-  console.log(selectedChef);
+  if (selectedChef) {
+    localStorage.setItem("chef", JSON.stringify(selectedChef));
+  }
+  const allData = useLoaderData();
+  const { recipes } = allData;
+  console.log(recipes);
+  const chef = JSON.parse(localStorage.getItem("chef"));
   return (
-    <div className="relative py-10  bg-black">
-      <h1 className="text-center text-white mb-12 text-6xl font-['Oswald']">
-        {" "}
-        Meet Our Professional Chefs
-      </h1>
+    <>
+      <div className="relative py-10  bg-black">
+        <h1 className="text-center text-white mb-12 text-6xl font-['Oswald']">
+          {" "}
+          Meet Our Professional Chefs
+        </h1>
 
-      <div className="w-[95%] mx-auto">
-        <div className="card card-side bg-base-100 shadow-xl">
-          <figure className="w-1/2">
-            <img src={selectedChef.picture} alt="Movie" />
-          </figure>
-          <div className="card-body  w-1/2">
-            <div>
-              <h2 className="card-title">{selectedChef.name}</h2>
-              <p>{selectedChef.bio}</p>
-              <p className="flex gap-2 items-center">
-                <FaHeart className="text-red-600" />
-                {selectedChef.likes}
-              </p>
-              <p className="flex gap-2 items-center">
-                <FaTasks className="text-amber-600" />
-                {selectedChef.recipes}
-              </p>
-              <p className="flex gap-2 items-center">
-                <FaBriefcase className="text-amber-600" />
-                {selectedChef.experience} Years Of Experience
-              </p>
+        <div className="w-[95%] mx-auto ">
+          <div className="card h-full card-side bg-base-100 shadow-xl font-['Mulish']">
+            <figure className="w-1/2">
+              <img className="h-full" src={chef?.picture} alt="Movie" />
+            </figure>
+            <div className="card-body   w-1/2">
+              <Player
+                autoplay
+                loop
+                src="https://assets5.lottiefiles.com/packages/lf20_jBvjF3.json"
+                style={{ height: "300px", width: "300px" }}
+              ></Player>
+              <div>
+                <h2 className="card-title  text-2xl text-amber-600  ">
+                  {chef.name}
+                </h2>
+                <p>{chef.bio}</p>
+                <p className="flex mt-2 gap-2 items-center">
+                  <FaHeart className="text-red-600" />
+                  {chef.likes} Likes
+                </p>
+                <p className="flex my-1 gap-2 items-center">
+                  <FaTasks className="text-amber-600" />
+                  {chef.recipes} recipes
+                </p>
+                <p className="flex gap-2 items-center">
+                  <FaBriefcase className="text-amber-600" />
+                  {chef.experience} Years Of Experience
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <div className="w-[95%] mx-auto my-12">
+        <h1 className="text-center text-amber-600 mb-12 text-6xl font-['Oswald']">
+          {" "}
+          Recipe By {chef.name}
+        </h1>
+        <div className="divider shadow-md mx-auto bg-amber-700 rounded-3xl"></div>
+        {recipes.map((recipe, idx) => (
+          <RecipeCard key={idx} recipe={recipe}></RecipeCard>
+        ))}
+      </div>
+    </>
   );
 };
 
