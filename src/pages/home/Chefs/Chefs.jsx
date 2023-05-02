@@ -1,16 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import ChefCard from "./ChefCard";
+import { AuthContex } from "../../../providers/AuthProvider";
 
 const Chefs = () => {
-  const [chefs, setChefs] = useState([]);
+  const { chefs } = useContext(AuthContex);
+  const [toggle, setToggle] = useState(true);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/chefs")
-      .then((res) => res.json())
-      .then((data) => setChefs(data))
-      .catch((error) => console.log(error.message));
-  }, []);
   return (
     <div className="relative py-10  bg-black">
       <h1 className="text-center text-white mb-12 text-6xl font-['Oswald']">
@@ -18,9 +14,21 @@ const Chefs = () => {
         Meet Our Professional Chefs
       </h1>
       <div className=" w-[90%] mx-auto grid grid-cols-3 gap-4">
-        {chefs.map((chef) => (
-          <ChefCard key={chef.id} chef={chef}></ChefCard>
-        ))}
+        {toggle
+          ? chefs
+              .slice(0, 6)
+              .map((chef) => <ChefCard key={chef.id} chef={chef}></ChefCard>)
+          : chefs.map((chef) => (
+              <ChefCard key={chef.id} chef={chef}></ChefCard>
+            ))}
+      </div>
+      <div className="text-center mt-8">
+        <button
+          onClick={() => setToggle(!toggle)}
+          className="btn bg-amber-600 hover:bg-amber-700"
+        >
+          {toggle ? " See More" : "See Less"}
+        </button>
       </div>
     </div>
   );

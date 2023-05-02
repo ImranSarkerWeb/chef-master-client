@@ -22,6 +22,7 @@ const gitHubProvider = new GithubAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [chefs, setChefs] = useState([]);
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -35,16 +36,6 @@ const AuthProvider = ({ children }) => {
   const logOut = () => {
     return signOut(auth);
   };
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log("The current user", currentUser);
-      setLoading(false);
-      setUser(currentUser);
-    });
-    return () => {
-      unsubscribe();
-    };
-  }, []);
 
   const googleSignIn = async () => {
     try {
@@ -64,8 +55,28 @@ const AuthProvider = ({ children }) => {
       console.log(error.message);
     }
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log("The current user", currentUser);
+      setLoading(false);
+      setUser(currentUser);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/chefs")
+      .then((res) => res.json())
+      .then((data) => setChefs(data))
+      .catch((error) => console.log(error.message));
+  }, []);
   const authInfo = {
     user,
+    chefs,
     loading,
     createUser,
     signIn,
