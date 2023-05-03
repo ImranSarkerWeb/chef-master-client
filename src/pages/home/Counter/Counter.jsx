@@ -5,9 +5,9 @@ import CountUp from "react-countup";
 
 const Counter = () => {
   return (
-    <div className="w-[90%] mx-auto my-10 flex flex-col md:flex-row gap-2">
-      <div className="card  w-full bg-amber-500 shadow-xl">
-        <div className="card-body font-bold text-base-300 items-center">
+    <div className="w-[90%] mx-auto my-10 flex flex-col md:flex-row gap-0">
+      <div className="card rounded-none w-full bg-amber-600 shadow-xl">
+        <div className="card-body font-['Oswald'] text-white items-center">
           <h2 className="card-title p-1 rounded-lg shadow-md text-5xl">
             <FaCoffee />
           </h2>
@@ -22,8 +22,8 @@ const Counter = () => {
           <p className="text-xl mt-0">Coffe Cup</p>
         </div>
       </div>
-      <div className="card  w-full bg-amber-500 shadow-xl">
-        <div className="card-body font-bold text-base-300 items-center">
+      <div className="card rounded-none  w-full bg-amber-600 shadow-xl">
+        <div className="card-body font-['Oswald'] text-white items-center">
           <h2 className="card-title p-1 rounded-lg shadow-md text-5xl">
             <FaSmile />
           </h2>
@@ -38,8 +38,8 @@ const Counter = () => {
           <p className="text-xl mt-0">Daily Happy Clients</p>
         </div>
       </div>
-      <div className="card  w-full bg-amber-500 shadow-xl">
-        <div className="card-body font-bold text-base-300 items-center">
+      <div className="card rounded-none  w-full bg-amber-600 shadow-xl">
+        <div className="card-body font-['Oswald'] text-white items-center">
           <h2 className="card-title p-1 rounded-lg shadow-md text-5xl">
             <FaAward />
           </h2>
@@ -54,8 +54,8 @@ const Counter = () => {
           <p className="text-xl mt-0">Award Winnig</p>
         </div>
       </div>
-      <div className="card  w-full bg-amber-500 shadow-xl">
-        <div className="card-body font-bold text-base-300 items-center">
+      <div className="card rounded-none  w-full bg-amber-600 shadow-xl">
+        <div className="card-body font-['Oswald'] text-white items-center">
           <h2 className="card-title p-1 rounded-lg shadow-md text-5xl">
             <FaUtensils />
           </h2>
