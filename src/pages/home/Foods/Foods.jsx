@@ -22,9 +22,14 @@ const Foods = () => {
       </h1>
       <div className="w-[90%] h-screen overflow-hidden md:h-full mx-auto grid md:grid-cols-4 gap-4">
         {categories &&
-          categories.map((category) => (
-            <FoodCard key={category.idCategory} category={category}></FoodCard>
-          ))}
+          categories
+            .slice(0, 12)
+            .map((category) => (
+              <FoodCard
+                key={category.idCategory}
+                category={category}
+              ></FoodCard>
+            ))}
       </div>
     </div>
   );

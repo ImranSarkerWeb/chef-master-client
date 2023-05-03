@@ -6,7 +6,7 @@ const FoodCard = ({ category }) => {
   const { strCategoryThumb, strCategory, strCategoryDescription } = category;
   return (
     <div>
-      <div className=" relative card w-full bg-base-100 shadow-xl">
+      <div className=" relative  card w-full bg-base-100 shadow-xl">
         <figure>
           <img src={strCategoryThumb} alt="" />
         </figure>

@@ -16,7 +16,7 @@ const Recipes = () => {
   }
   const allData = useLoaderData();
   const { recipes } = allData;
-  console.log(recipes);
+
   const chef = JSON.parse(localStorage.getItem("chef"));
   return (
     <>
@@ -28,11 +28,11 @@ const Recipes = () => {
         </h1>
 
         <div className="w-[95%] mx-auto ">
-          <div className="card h-full card-side bg-base-100 shadow-xl font-['Mulish']">
-            <figure className="w-1/2">
-              <img className="h-full" src={chef?.picture} alt="Movie" />
+          <div className="card h-full md:card-side bg-base-100 shadow-xl font-['Mulish']">
+            <figure className="md:w-1/2">
+              <img className="md:h-full" src={chef?.picture} alt="Movie" />
             </figure>
-            <div className="card-body   w-1/2">
+            <div className="card-body   md:w-1/2">
               <Player
                 autoplay
                 loop

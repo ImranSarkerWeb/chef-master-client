@@ -80,7 +80,7 @@ const Register = () => {
         </div>
         <div className="mt-8 mb-4">
           <input
-            type="text"
+            type="password"
             placeholder="Password"
             className="input input-bordered input-md w-full max-w-xs"
             name="password"

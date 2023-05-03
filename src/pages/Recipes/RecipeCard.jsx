@@ -17,8 +17,8 @@ const RecipeCard = ({ recipe }) => {
     <div>
       <div className="card card-side font-['Mulish'] bg-base-100 my-4 shadow-xl">
         <div className="avatar">
-          <div className="w-96 mx-4  mask mask-hexagon">
-            <img src={picture} />
+          <div className="md:w-96 mx-4  mask mask-hexagon">
+            <img className="hidden md:block" src={picture} />
           </div>
         </div>
         <div className="card-body">
