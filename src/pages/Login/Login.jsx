@@ -6,16 +6,12 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import Loader from "../shared/Loader";
 
 const Login = () => {
-  const { loading, signIn, googleSignIn, githubSignIn } =
-    useContext(AuthContex);
+  const { signIn, googleSignIn, githubSignIn } = useContext(AuthContex);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
 
-  if (loading) {
-    return <Loader></Loader>;
-  }
   const handleSignIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
