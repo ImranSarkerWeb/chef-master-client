@@ -5,7 +5,6 @@ import { AuthContex } from "../../providers/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContex);
-  console.log(user);
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -16,7 +15,7 @@ const Header = () => {
       });
   };
   return (
-    <div className="navbar bg-base-100 font-['Mulish']">
+    <div className="navbar bg-base-200 font-['Mulish']">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -61,14 +60,13 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to="/menu"
-                className={({ isActive }) =>
-                  isActive ? "text-amber-500 font-bold bg-gray-300" : ""
-                }
-              >
-                Menu
-              </NavLink>
+              <a>Menu</a>
+            </li>
+            <li>
+              <a>Contact</a>
+            </li>
+            <li>
+              <a>Offer</a>
             </li>
           </ul>
         </div>
@@ -76,6 +74,7 @@ const Header = () => {
           Chef Master
         </Link>
       </div>
+      {/* this below code for large display */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
@@ -88,7 +87,6 @@ const Header = () => {
               Home
             </NavLink>
           </li>
-
           <li>
             <NavLink
               to="/blog"
@@ -100,14 +98,13 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/menu"
-              className={({ isActive }) =>
-                isActive ? "text-amber-500 font-bold bg-gray-300" : ""
-              }
-            >
-              Menu
-            </NavLink>
+            <a>Menu</a>
+          </li>
+          <li>
+            <a>Contact</a>
+          </li>
+          <li>
+            <a>Offer</a>
           </li>
         </ul>
       </div>
