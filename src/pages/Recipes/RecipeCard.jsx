@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { FaHandPointRight } from "react-icons/fa";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ReactStarsRating from "react-awesome-stars-rating";
 
 const RecipeCard = ({ recipe }) => {
   const { name, ingredients, cooking_method, rating, picture } = recipe;
@@ -45,7 +46,15 @@ const RecipeCard = ({ recipe }) => {
             <p key={index}>{line}</p>
           ))}
 
-          <p>Ratings: {rating}</p>
+          <p className="flex items-center">
+            Ratings:{" "}
+            <ReactStarsRating
+              className="flex mx-2"
+              isEdit={false}
+              value={rating}
+            />{" "}
+            {rating}
+          </p>
 
           <div className="card-actions justify-end">
             <button

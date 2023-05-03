@@ -13,7 +13,6 @@ const Foods = () => {
   }, []);
 
   const { categories } = catergoryFood;
-  console.log(categories);
   return (
     <div className=" my-14 pb-5 ">
       <h1 className="text-center  mb-12 text-6xl font-['Oswald']">

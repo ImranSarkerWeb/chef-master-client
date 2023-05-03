@@ -26,7 +26,6 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
-        console.log(createdUser);
         setSuccess("User has been created successfully.");
         updateUserProfile(result.user, name, photo)
           .then(() => {
