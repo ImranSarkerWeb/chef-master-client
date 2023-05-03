@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const ChefCard = ({ chef }) => {
   const { id, name, picture, experience, recipes, likes } = chef;
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="card w-full bg-base-100 shadow-xl">
       <figure className="px-8 pt-8">
         <img src={picture} alt={name} className="rounded-xl" />
       </figure>

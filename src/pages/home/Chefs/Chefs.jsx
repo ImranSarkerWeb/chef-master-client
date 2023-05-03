@@ -13,7 +13,7 @@ const Chefs = () => {
         {" "}
         Meet Our Professional Chefs
       </h1>
-      <div className=" w-[90%] mx-auto grid grid-cols-3 gap-4">
+      <div className=" w-[90%] mx-auto grid md:grid-cols-3 gap-4">
         {toggle
           ? chefs
               .slice(0, 6)
