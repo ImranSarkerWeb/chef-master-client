@@ -3,9 +3,9 @@ import React, { Suspense, lazy } from "react";
 import Banner from "../Banner/Banner";
 // import Chefs from "../Chefs/Chefs";
 import Foods from "../Foods/Foods";
-import Counter from "../Counter/Counter";
 import Loader from "../../shared/Loader";
 
+//lazy loading content
 const ChefsPreview = lazy(() => import("../Chefs/Chefs"));
 const CounterPreview = lazy(() => import("../Counter/Counter"));
 

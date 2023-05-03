@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { FaHandPointRight } from "react-icons/fa";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const RecipeCard = ({ recipe }) => {
@@ -11,11 +11,10 @@ const RecipeCard = ({ recipe }) => {
   const [toggle, setToggle] = useState(false);
   const notify = () => {
     setToggle(true);
-    toast(`${name} added to your favorite list.`);
+    return toast(`${name} added to your favorite list.`);
   };
   return (
     <div>
-      <ToastContainer />
       <div className="card card-side font-['Mulish'] bg-base-100 my-4 shadow-xl">
         <div className="avatar">
           <div className="w-96 mx-4  mask mask-hexagon">

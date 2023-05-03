@@ -11,7 +11,6 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
   const from = location?.state?.from?.pathname || "/";
 
   if (loading) {
@@ -25,8 +24,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
-        navigate(from);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);

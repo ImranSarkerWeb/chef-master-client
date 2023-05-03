@@ -5,6 +5,7 @@ import { AuthContex } from "../../providers/AuthProvider";
 import { FaBriefcase, FaHeart, FaTasks } from "react-icons/fa";
 import { Player } from "@lottiefiles/react-lottie-player";
 import RecipeCard from "./RecipeCard";
+import { ToastContainer } from "react-toastify";
 
 const Recipes = () => {
   const { chefs } = useContext(AuthContex);
@@ -19,6 +20,7 @@ const Recipes = () => {
   const chef = JSON.parse(localStorage.getItem("chef"));
   return (
     <>
+      <ToastContainer />
       <div className="relative py-10  bg-black">
         <h1 className="text-center text-white mb-12 text-6xl font-['Oswald']">
           {" "}
