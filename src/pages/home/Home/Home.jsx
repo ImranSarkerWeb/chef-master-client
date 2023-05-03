@@ -16,6 +16,9 @@ const Home = () => {
       <Foods></Foods>
       <Suspense fallback={<Loader />}>
         <ChefsPreview></ChefsPreview>
+      </Suspense>
+      <Suspense>
+        {" "}
         <CounterPreview></CounterPreview>
       </Suspense>
     </div>

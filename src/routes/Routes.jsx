@@ -48,7 +48,10 @@ const router = createBrowserRouter([
             <BlogPreview></BlogPreview>
           </Suspense>
         ),
-        loader: () => fetch("http://localhost:5000/questions"),
+        loader: () =>
+          fetch(
+            "https://chef-master-server-imransarkerweb.vercel.app/questions"
+          ),
       },
       {
         path: "/recipes/:id",
@@ -58,7 +61,9 @@ const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/recipes/${params.id}`),
+          fetch(
+            `https://chef-master-server-imransarkerweb.vercel.app/recipes/${params.id}`
+          ),
       },
     ],
   },

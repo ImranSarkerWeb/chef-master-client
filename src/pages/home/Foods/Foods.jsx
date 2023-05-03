@@ -6,7 +6,7 @@ const Foods = () => {
   const [catergoryFood, setCategoryFood] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:5000/catergory")
+    fetch("https://chef-master-server-imransarkerweb.vercel.app/catergory")
       .then((res) => res.json())
       .then((data) => setCategoryFood(data))
       .catch((error) => console.error(error.message));

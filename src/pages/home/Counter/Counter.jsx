@@ -27,7 +27,13 @@ const Counter = () => {
           <h2 className="card-title p-1 rounded-lg shadow-md text-5xl">
             <FaSmile />
           </h2>
-          <CountUp start={0} end={8564} delay={2}>
+          <CountUp
+            className="custom-count"
+            start={0}
+            end={8564}
+            delay={2}
+            redraw={true}
+          >
             {({ countUpRef }) => (
               <div className="text-3xl mb-0">
                 <span ref={countUpRef} /> +
