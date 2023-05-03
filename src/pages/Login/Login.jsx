@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../providers/AuthProvider";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import Loader from "../shared/Loader";
 
 const Login = () => {
   const { loading, signIn, googleSignIn, githubSignIn } =
@@ -14,7 +15,7 @@ const Login = () => {
   const from = location?.state?.from?.pathname || "/";
 
   if (loading) {
-    return "loadding...";
+    return <Loader></Loader>;
   }
   const handleSignIn = (e) => {
     e.preventDefault();

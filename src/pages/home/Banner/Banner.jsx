@@ -17,9 +17,6 @@ const Banner = () => {
         <span>Coffee Time</span>
         <span>With Chef Master</span>
       </h1>
-      <button className="absolute bottom-2 lg:bottom-20 left-1/2 transform -translate-x-1/2 px-8 py-4 text-white font-semibold bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50">
-        Order Online
-      </button>
     </div>
   );
 };
