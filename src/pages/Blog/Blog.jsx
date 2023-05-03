@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Blog = () => {
   const questions = useLoaderData();
+
   return (
     <div className="w-[90%] mx-auto my-10">
       {questions.map((question) => {

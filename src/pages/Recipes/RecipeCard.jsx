@@ -17,10 +17,6 @@ const RecipeCard = ({ recipe }) => {
     <div>
       <ToastContainer />
       <div className="card card-side font-['Mulish'] bg-base-100 my-4 shadow-xl">
-        {/* <figure>
-          <img src={recipe?.picture} alt="Movie" />
-        </figure> */}
-
         <div className="avatar">
           <div className="w-96 mx-4  mask mask-hexagon">
             <img src={picture} />

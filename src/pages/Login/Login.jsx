@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../providers/AuthProvider";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
@@ -9,6 +9,9 @@ const Login = () => {
     useContext(AuthContex);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
+  const from = location?.state?.from?.pathname || "/";
 
   if (loading) {
     return "loadding...";
@@ -22,13 +25,14 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
-        navigate("/");
+        navigate(from);
       })
       .catch((error) => {
         console.log(error.message);
         setError(error.message);
       });
   };
+
   return (
     <div className="text-center my-8 font-['Mulish']">
       <h2 className="text-4xl my-8">Please Login!</h2>

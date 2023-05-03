@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContex } from "../../providers/AuthProvider";
 
 const Header = () => {
@@ -40,13 +40,35 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Home</a>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "text-amber-500 font-bold bg-gray-300" : ""
+                }
+              >
+                Home
+              </NavLink>
             </li>
-            <li tabIndex={0}>
-              <a className="justify-between">Menu</a>
+
+            <li>
+              <NavLink
+                to="/blog"
+                className={({ isActive }) =>
+                  isActive ? "text-amber-500 font-bold bg-gray-300" : ""
+                }
+              >
+                Blog
+              </NavLink>
             </li>
             <li>
-              <a>Blog</a>
+              <NavLink
+                to="/menu"
+                className={({ isActive }) =>
+                  isActive ? "text-amber-500 font-bold bg-gray-300" : ""
+                }
+              >
+                Menu
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -57,13 +79,35 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Home</a>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "text-amber-500 font-bold bg-gray-300" : ""
+              }
+            >
+              Home
+            </NavLink>
           </li>
-          <li tabIndex={0}>
-            <a>Menu</a>
+
+          <li>
+            <NavLink
+              to="/blog"
+              className={({ isActive }) =>
+                isActive ? "text-amber-500 font-bold bg-gray-300" : ""
+              }
+            >
+              Blog
+            </NavLink>
           </li>
           <li>
-            <a>Blog</a>
+            <NavLink
+              to="/menu"
+              className={({ isActive }) =>
+                isActive ? "text-amber-500 font-bold bg-gray-300" : ""
+              }
+            >
+              Menu
+            </NavLink>
           </li>
         </ul>
       </div>

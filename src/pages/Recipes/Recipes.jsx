@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
-import { json, useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContex } from "../../providers/AuthProvider";
 import { FaBriefcase, FaHeart, FaTasks } from "react-icons/fa";
-import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import { Player } from "@lottiefiles/react-lottie-player";
 import RecipeCard from "./RecipeCard";
 
 const Recipes = () => {
