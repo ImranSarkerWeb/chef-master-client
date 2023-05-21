@@ -1,21 +1,32 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
+import Typewriter from "typewriter-effect";
 
 const Banner = () => {
   return (
-    <div className="relative h-[80vh]">
+    <div className="relative  h-[30vh] md:h-[90vh]">
       <div
         className="absolute inset-0 bg-center bg-cover"
         style={{
           backgroundImage:
-            "url('https://img.freepik.com/free-photo/front-view-young-male-cook-white-cook-suit-smiling-holding-coffee-cups-green_140725-21439.jpg?w=996&t=st=1682958682~exp=1682959282~hmac=11352dc40a40f2c327f6cc08a32258f499fb379002fdd2401f88b1e340a46444')",
+            "url('https://imageio.forbes.com/specials-images/imageserve/62684f7725a95fdd052bda72/0x0.jpg?format=jpg&width=1200')",
           opacity: 1,
         }}
       ></div>
-      <div className="absolute inset-0 bg-black opacity-60"></div>
-      <h1 className="absolute inset-0 flex flex-col items-center justify-center text-8xl font-bold font-oswald italic text-white leading-none">
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <h1 className=" absolute  text-4xl inset-0 flex flex-col items-center justify-center md:text-5xl lg:text-8xl font-bold font-oswald italic text-white leading-none">
         <span>Coffee Time</span>
-        <span>With Chef Master</span>
+        <span>
+          {" "}
+          <Typewriter
+            options={{
+              strings: ["With Chef Master"],
+              autoStart: true,
+              loop: true,
+              pauseFor: 3000,
+            }}
+          />{" "}
+        </span>
       </h1>
     </div>
   );
